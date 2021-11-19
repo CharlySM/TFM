@@ -5,8 +5,8 @@ El desarrollo del proyecto será hecho mayormente en R, para esto se usará la v
 Además se usará para realizar la memoria del trabajo Latex desde la plataforma overleaf, por lo que tendremos la última versión de latex disponible.
 
 Se necesita para desarrollar el trabajo los siguientes conocimientos técnicos:
-* conocimientos en Keras y tensorflow.
-* conocimientos de redes neuronales.
-* conocimientos en Deep learning.
+* Conocimientos en Keras y tensorflow.
+* Conocimientos de redes neuronales.
+* Conocimientos en Deep learning.
 * Conocimientos de inteligencia artificial.
 * Conocimiento de tratamiento de datos.

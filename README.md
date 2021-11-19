@@ -1,9 +1,4 @@
----
-layout: default
-title: TFM
----
-
- ### [Principal](https://charlysm.github.io/TFM) | [Descripción de datos](https://charlysm.github.io/TFM/docs/datos) | [Tecnología usada](https://charlysm.github.io/TFM/docs/tecnologia)
+### [Principal](https://charlysm.github.io/TFM) | [Descripción de datos](https://charlysm.github.io/TFM/docs/datos) | [Tecnología usada](https://charlysm.github.io/TFM/docs/tecnologia)
 
 # TFM
 

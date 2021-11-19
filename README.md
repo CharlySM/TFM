@@ -8,3 +8,5 @@ La simulación computacional de sistemas ciberfísicos es un proceso extremadame
 Este trabajo investigará y desarrollará nuevas técnicas de Aprendizaje Profundo (Deep Learning) para construir automáticamente modelos DDS más rápidos, precisos y realistas empleando redes neuronales (Deep DDS, D3S). El objetivo del proyecto es diseñar, implementar y experimentar con diversas arquitecturas y algoritmos de Deep Learning para aproximar el comportamiento del equipamiento energético de un edificio a partir de datos históricos reales o simulados con un modelo físico.
 
 El trabajo se oferta como preasignado, pero se anima a los estudiantes interesados en la temática a que contacten con los directores para elaborar una propuesta en las próximas rondas de asignación.
+
+La descripción puede ser encontrada [aquí](https://masteres.ugr.es/ingenieria-informatica/sites/master/ingenieria-informatica/public/inline-files/propuestas-19-11-asignadas.pdf)

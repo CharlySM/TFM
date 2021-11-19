@@ -1,3 +1,10 @@
+---
+layout: default
+title: Datos
+---
+
+ ##### [Principal](https://charlysm.github.io/TFM) | [Descripción de datos](https://charlysm.github.io/TFM/docs/datos) | [Tecnología usada](https://charlysm.github.io/TFM/docs/tecnologia)
+
 # Datos usados.
 
 Los datos que se han usado se han recibido por parte del tutor, ya que los datos han sido generados por un agente inteligente. Este agente inteligente dispone de varias heurísticas las cuales generan datos con distinta calidad. Los datos usados son los datos generados por el agente con mejor calidad.

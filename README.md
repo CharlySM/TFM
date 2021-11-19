@@ -13,4 +13,4 @@ La descripción puede ser encontrada [aquí.](https://masteres.ugr.es/ingenieria
 
 # Table of contents
 
-1. [Descripción de datos.](https://charlysm.github.io/TFM/)
+1. [Descripción de datos.](https://charlysm.github.io/TFM/docs/datos)

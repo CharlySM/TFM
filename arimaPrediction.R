@@ -1,5 +1,8 @@
+
 source("./dataset.R")
 library(forecast)
+library(dplyr)
+
 
 xregTrain <- cbind(OutdoorAirTemperature = dataset$train[, c("Site Outdoor Air Drybulb Temperature (Environment)")],
                    HeatingSetpointTemperature = dataset$train[, c("Zone Thermostat Heating Setpoint Temperature (SPACE1-1)")],
@@ -26,4 +29,18 @@ lines(pronostico$mean[1:100], col="blue")
 plot(pronostico, include=250, col="blue")
 autoplot(pronostico) # + autolayer(fitted(pronostico))
 
+index<-seq(1:500)
 
+df<-data.frame(x=y1[(length(y1)-500):(length(y1)-1)],y=pronostico$x[1:500],index)
+print(summary(df))
+df1 <- df[c("index","y")]
+df2 <- df[c("index","x")]
+df1$index<-df1$index + 500
+colnames(df2)<-c("index","y")
+df1$colour<-c(rep(2, n = 500))
+df2$colour<-c(rep(1, n = 500))
+
+df<-union(df2,df1)
+summary(df)
+
+ggplot(df, aes(x=index,y=y,colour=colour)) + geom_line()

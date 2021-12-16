@@ -1,6 +1,7 @@
 source("./dataset.R")
 library(forecast)
 library(dplyr)
+start_time <- Sys.time()
 
 pronostico <- naive(ts(dataset$train[,c("Facility Total HVAC Electric Demand Power (Whole Building)")]),
                     xreg=dataset$train[,c("Site Outdoor Air Drybulb Temperature (Environment)",
@@ -10,6 +11,7 @@ pronostico <- naive(ts(dataset$train[,c("Facility Total HVAC Electric Demand Pow
                                           "People Air Temperature (SPACE1-1 PEOPLE 1)")],h=length(dataset$test))
 
 y1 <- dataset$test[,c("Facility Total HVAC Electric Demand Power (Whole Building)")]
+end_time <- Sys.time()
 
 length(pronostico$x)
 checkresiduals(pronostico)
@@ -28,3 +30,4 @@ print(summary(df))
 ggplot(df, aes(x=index)) +
   geom_line(aes(y = x),color=1) +
   geom_line(aes(y = y), color="brown2")
+print(end_time - start_time)

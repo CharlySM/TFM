@@ -24,14 +24,7 @@ index<-seq(1:500)
 
 df<-data.frame(x=y1[(length(y1)-500):(length(y1)-1)],y=pronostico$x[1:500],index)
 print(summary(df))
-df1 <- df[c("index","y")]
-df2 <- df[c("index","x")]
-df1$index<-df1$index + 500
-colnames(df2)<-c("index","y")
-df1$colour<-c(rep(2, n = 500))
-df2$colour<-c(rep(1, n = 500))
 
-df<-union(df2,df1)
-summary(df)
-
-ggplot(df, aes(x=index,y=y,colour=colour)) + geom_line()
+ggplot(df, aes(x=index)) +
+  geom_line(aes(y = x),color=1) +
+  geom_line(aes(y = y), color="brown2")

@@ -3,7 +3,7 @@ source("./dataset.R")
 library(forecast)
 library(dplyr)
 
-
+start_time <- Sys.time()
 xregTrain <- cbind(OutdoorAirTemperature = dataset$train[, c("Site Outdoor Air Drybulb Temperature (Environment)")],
                    HeatingSetpointTemperature = dataset$train[, c("Zone Thermostat Heating Setpoint Temperature (SPACE1-1)")],
                    CoolingSetpointTemperature = dataset$train[, c("Zone Thermostat Cooling Setpoint Temperature (SPACE1-1)")],
@@ -20,27 +20,23 @@ xregTest <- cbind(OutdoorAirTemperature = dataset$train[, c("Site Outdoor Air Dr
 model <- auto.arima(ts(dataset$train[,c("Facility Total HVAC Electric Demand Power (Whole Building)")]), xreg=xregTrain)
 y1 <- dataset$test[,c("Facility Total HVAC Electric Demand Power (Whole Building)")]
 pronostico <- forecast(model, xreg = xregTest)
+end_time <- Sys.time()
 accuracy(object=pronostico$mean,x=y1)
 length(pronostico$x)
 checkresiduals(model)
 
-plot(y1[1:100],type="l", ylab="Facility Total HVAC Electric Demand Power (Whole Building)", xlab="time")
-lines(pronostico$mean[1:100], col="blue")
-plot(pronostico, include=250, col="blue")
+plot(y1[(length(y1)-500):(length(y1)-1)],type="l", ylab="Facility Total HVAC Electric Demand Power (Whole Building)", xlab="time")
+lines(pronostico$x[1:500], col=2)
+plot(pronostico, include=250, col=2)
 autoplot(pronostico) # + autolayer(fitted(pronostico))
 
 index<-seq(1:500)
 
 df<-data.frame(x=y1[(length(y1)-500):(length(y1)-1)],y=pronostico$x[1:500],index)
 print(summary(df))
-df1 <- df[c("index","y")]
-df2 <- df[c("index","x")]
-df1$index<-df1$index + 500
-colnames(df2)<-c("index","y")
-df1$colour<-c(rep(2, n = 500))
-df2$colour<-c(rep(1, n = 500))
 
-df<-union(df2,df1)
-summary(df)
+ggplot(df, aes(x=index)) +
+  geom_line(aes(y = x),color=1) +
+  geom_line(aes(y = y), color="brown2")
 
-ggplot(df, aes(x=index,y=y,colour=colour)) + geom_line()
+print(end_time - start_time)

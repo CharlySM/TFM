@@ -36,7 +36,6 @@ df<-data.frame(x=y1[(length(y1)-500):(length(y1)-1)],y=pronostico$x[1:500],index
 print(summary(df))
 
 ggplot(df, aes(x=index)) +
-  geom_line(aes(y = x),color=1) +
-  geom_line(aes(y = y), color="brown2")
-
+  geom_line(aes(y = x, colour="Test"))+
+  geom_line(aes(y = y, colour="Predict"))+ scale_color_manual(values = c("Test"="black","Predict"="brown2"))
 print(end_time - start_time)
